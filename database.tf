@@ -1,7 +1,7 @@
 # Create MySQL Server
 resource "azurerm_mysql_server" "wordpress" {
   resource_group_name = azurerm_resource_group.wordpress.name
-  name                = "mysqlserver-${(random_string.fqdn.result)}"
+  name                = var.db_server_name
   location            = azurerm_resource_group.wordpress.location
   version             = "5.7"
 
@@ -22,7 +22,7 @@ resource "azurerm_mysql_server" "wordpress" {
 
 # Create MySql DataBase
 resource "azurerm_mysql_database" "wordpress" {
-  name                = "db-${(random_string.fqdn.result)}"
+  name                = var.dbname
   resource_group_name = azurerm_resource_group.wordpress.name
   server_name         = azurerm_mysql_server.wordpress.name
   charset             = "utf8"

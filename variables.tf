@@ -27,6 +27,14 @@ variable "admin_password" {
   default     = "W0rdpr3ss@p4ss"
 }
 
+variable "dbname"{
+  default = "db-wordpress"
+}
+
+variable "db_server_name" {
+  default = "mysqlserver-wordpress"
+}
+
 variable "database_admin_login" {
   default = "wordpress"
 }
